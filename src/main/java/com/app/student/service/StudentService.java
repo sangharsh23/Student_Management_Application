@@ -2,12 +2,37 @@ package com.app.student.service;
 
 import java.util.List;
 
-import com.app.student.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public interface StudentService {
-	List<Student> getAllStudent();
-	Student saveStudent(Student student);
-	Student getStudentById(int id);
-	Student updateStudent(Student student);
-	void deleteStudentById(int id);
+import com.app.student.model.Student;
+import com.app.student.repository.StudentRepository;
+
+@Service
+public class StudentService {
+	@Autowired
+	private StudentRepository studentRepository;
+
+	public List<Student> getAllStudent() {
+
+		return studentRepository.findAll();
+	}
+
+	public Student saveStudent(Student student) {
+		return studentRepository.save(student);
+	}
+
+	public Student getStudentById(int id) {
+		return studentRepository.findById(id).get();
+	}
+
+	public Student updateStudent(Student student) {
+		return studentRepository.save(student);
+	}
+
+	public void deleteStudentById(int id) {
+		studentRepository.deleteById(id);
+
+	}
+
 }
