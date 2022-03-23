@@ -16,7 +16,7 @@ public class StudentController {
 @Autowired
 private StudentService studentService;
 //create the handler method to handle list student request and return model and view
-@GetMapping("/students/info")
+@GetMapping("/students")
 public String listStudent(Model model) {
 	model.addAttribute("student", studentService.getAllStudent());
 	return "students";
@@ -31,7 +31,7 @@ public String createStudentForm(Model model) {
 @PostMapping("/students")
 public String saveStudent(@ModelAttribute("student") Student student ) {
 	studentService.saveStudent(student);
-	return "redirect:/students/info";
+	return "redirect:/students";
 }
 @GetMapping("/students/edit/{id}")
 public String editStudentForm(@PathVariable int id,Model model) {

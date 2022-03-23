@@ -20,17 +20,14 @@ public class StudentServiceImpl implements StudentService {
 		}
 		@Override
 		public Student saveStudent(Student student) {
-			// TODO Auto-generated method stub
 			return studentRepository.save(student);
 		}
 		@Override
 		public Student getStudentById(int id) {
-			// TODO Auto-generated method stub
 			return studentRepository.findById(id).get();
 		}
 		@Override
 		public Student updateStudent(Student student) {
-			// TODO Auto-generated method stub
 			return studentRepository.save(student);
 		}
 		@Override
